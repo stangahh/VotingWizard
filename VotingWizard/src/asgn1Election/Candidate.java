@@ -62,10 +62,10 @@ public class Candidate {
 		String partyStr = this.party;
 		String abbrevStr = "(" + this.abbrev + ")" + "\n";
 
-		int len = ElectionManager.NameField - nameStr.length();
-		String str = Strings.createString(nameStr,len);
+        int len = ElectionManager.NameField - nameStr.length();
+		String str = nameStr + Strings.createPadding(' ',len);
 		len = ElectionManager.FullPartyField - partyStr.length();
-		str += Strings.createString(partyStr,len);
+		str += partyStr + Strings.createPadding(' ',len);
 		str += abbrevStr;
 		return str;
 	}
