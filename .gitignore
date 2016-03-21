@@ -1,0 +1,13 @@
+*.class
+bin/
+*~
+.idea
+*.log
+
+# OS generated files #
+.DS_Store
+.DS_Store?
+._*
+.Trashes
+Thumbs.db
+*.lnk
