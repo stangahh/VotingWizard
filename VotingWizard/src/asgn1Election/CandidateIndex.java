@@ -6,13 +6,14 @@
  */
 package asgn1Election;
 
+
 /**
  * 
- * Simple class to provide an Integer representation of the index of a candidate in an
- * election, and to restrict it to a sensible range. 
+ * Simple class to provide an Integer representation of the index of a candidate
+ * in an election, and to restrict it to a sensible range.
  * 
- * @author hogan
- * 
+ * @author James Hogan, Jesse Stanger
+ * @version 1.0
  */
 public class CandidateIndex implements Comparable<CandidateIndex> {
 	/** Minimum index for the candidate */
@@ -22,9 +23,9 @@ public class CandidateIndex implements Comparable<CandidateIndex> {
 	public static final int MaxCandidates = 15;
 
 	/**
-	 * Simple static boolean method to check that the index lies within the valid range
-	 * 
-	 * @param value <code>int</code> to be tested 
+	 * Simple static boolean method to check that the index lies within the
+	 * valid range
+	 * @param value <code>int</code> to be tested
 	 * @return <code>(MinCandidates <= value <= MaxCandidates)</code>
 	 */
 	public static boolean inRange(int value) {
@@ -36,14 +37,13 @@ public class CandidateIndex implements Comparable<CandidateIndex> {
 
 	/**
 	 * Constructor for the <code>CandidateIndex</code> class
-	 *
 	 * @param index <code>int</code> index of candidate
 	 */
 	public CandidateIndex(int index) {
 		this.value = index;
 	}
 
-	/* 
+	/**
 	 * (non-Javadoc)
 	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
@@ -60,8 +60,7 @@ public class CandidateIndex implements Comparable<CandidateIndex> {
 	}
 
 	/**
-     * Simple method to create a deep copy of the candidate index
-	 * 
+	 * Simple method to create a deep copy of the candidate index
 	 * @return a deep copy of this <code>CandidateIndex</code>
 	 */
 	public CandidateIndex copy() {
@@ -77,16 +76,14 @@ public class CandidateIndex implements Comparable<CandidateIndex> {
 
 	/**
 	 * Simple Setter for the <code>CandidateIndex</code>
-	 * 
-	 * @param newValue <code>int</code> containing the chosen value 
+	 * @param newValue <code>int</code> containing the chosen value
 	 */
 	public void setValue(int newValue) {
 		this.value = newValue;
 	}
 
-	/*
+	/**
 	 * (non-Javadoc)
-	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override

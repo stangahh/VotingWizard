@@ -1,0 +1,10 @@
+Incomplete, but at least it all compiles?
+
+PrefElection not working perfectly.
+I think SimpleElection works fine.
+
+Havent tested loadVotes/loadDefs
+
+--
+Jesse Stanger
+n9162259

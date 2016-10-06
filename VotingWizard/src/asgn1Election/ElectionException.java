@@ -6,16 +6,18 @@
  */
 package asgn1Election;
 
+
 /**
  * 
- * This class represents exceptions associated with <code>Election</code>
- * and associated classes. 
+ * This class represents exceptions associated with <code>Election</code> and
+ * associated classes.
  * 
- * @author hogan
- * 
+ * @author James Hogan
+ * @version 1.0
  */
 @SuppressWarnings("serial")
 public class ElectionException extends Exception {
+	
 	/**
 	 * Constructor for <code>Exception</code>s relating to <code>Election</code>
 	 * 
@@ -24,4 +26,5 @@ public class ElectionException extends Exception {
 	public ElectionException(String msg) {
 		super("Election Exception: " + msg);
 	}
+	
 }

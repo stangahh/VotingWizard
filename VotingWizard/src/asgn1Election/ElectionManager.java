@@ -6,6 +6,7 @@
  */
 package asgn1Election;
 
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -19,19 +20,25 @@ import asgn1Util.Strings;
 
 /**
  * 
- * <p>Class to run a seat based election. The class hierarchy from {@link asgn1Election.Election}
- * provides the definitions and holds the vote collection; this class obtains a list of elections 
- * and provides a convenient wrapper of the counting methods for use in GUI applications.</p>
+ * <p>
+ * Class to run a seat based election. The class hierarchy from
+ * {@link asgn1Election.Election} provides the definitions and holds the vote
+ * collection; this class obtains a list of elections and provides a convenient
+ * wrapper of the counting methods for use in GUI applications.
+ * </p>
  * 
- * <p>A command line application is provided in {@link #main(String[])}</p>
+ * <p>
+ * A command line application is provided in {@link #main(String[])}
+ * </p>
  * 
- * @author hogan
+ * @author James Hogan
+ * @version 1.0
  * 
  */
 public class ElectionManager {
 	/** Width of candidate and count information display */
 	public static final int DisplayFieldWidth = 30;
-	
+
 	/** Width of the vote count field */
 	public static final int VoteField = 5;
 
@@ -51,8 +58,10 @@ public class ElectionManager {
 	public static final String DataDir = ".//data//";
 
 	/**
-	 * <p>Simple command line application - does not control GUI launch. Reads an election 
-	 * list and works through the results one by one</p> 
+	 * <p>
+	 * Simple command line application - does not control GUI launch. Reads an
+	 * election list and works through the results one by one
+	 * </p>
 	 * 
 	 * @param args <code>String[]</code> unused
 	 */
@@ -74,7 +83,7 @@ public class ElectionManager {
 
 	/* ArrayList containing list of elections */
 	private ArrayList<Election> electionList;
-	
+
 	/* Current Election */
 	private Election currElection;
 
@@ -107,14 +116,18 @@ public class ElectionManager {
 	/**
 	 * Method to load list of elections from file specification
 	 * 
-	 * @throws FileNotFoundException if <code>srcFile</code> not found 
-	 * @throws IOException if problems from <code>BufferedReader</code> 
-	 * @throws ElectionException from {@link #parseElectionFromLine(String, int)}
-	 * @throws NumbersException from {@link #parseElectionFromLine(String, int)}
+	 * @throws FileNotFoundException
+	 *             if <code>srcFile</code> not found
+	 * @throws IOException
+	 *             if problems from <code>BufferedReader</code>
+	 * @throws ElectionException
+	 *             from {@link #parseElectionFromLine(String, int)}
+	 * @throws NumbersException
+	 *             from {@link #parseElectionFromLine(String, int)}
 	 * 
 	 */
-	public void getElectionsFromFile(String srcFile) throws FileNotFoundException, IOException,
-	                                                       ElectionException, NumbersException {
+	public void getElectionsFromFile(String srcFile)
+			throws FileNotFoundException, IOException, ElectionException, NumbersException {
 		FileInputStream fstream = new FileInputStream(srcFile);
 		BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
 
@@ -133,9 +146,8 @@ public class ElectionManager {
 	}
 
 	/**
-	 * Wrapper method to manage count of election, reporting results. 
-	 * 
-	 * @return <code>String</code> containing report for all electorates. 
+	 * Wrapper method to manage count of election, reporting results.
+	 * @return <code>String</code> containing report for all electorates.
 	 */
 	public String manageCount() {
 		// Then we can determine the winner, clean up and return
@@ -144,42 +156,53 @@ public class ElectionManager {
 	}
 
 	/**
-	 * <p>Setter for the current election, but one which loads its definitions 
-	 * and votes from the files specified by the election name.</p>
+	 * <p>
+	 * Setter for the current election, but one which loads its definitions and
+	 * votes from the files specified by the election name.
+	 * </p>
 	 * 
-	 * <p>Throws numerous exceptions propagated up from the <code>Election</code> 
-	 * methods</p>
+	 * <p>
+	 * Throws numerous exceptions propagated up from the <code>Election</code>
+	 * methods
+	 * </p>
 	 * 
 	 * @param elec <code>Election</code> to be loaded and set as the current election
-	 * @throws ElectionException from {@link asgn1Election.Election#loadDefs()},
-	 * {@link asgn1Election.Election#loadVotes()}
-	 * @throws IOException from {@link asgn1Election.Election#loadDefs()},
-	 * {@link asgn1Election.Election#loadVotes()}
-	 * @throws FileNotFoundException from {@link asgn1Election.Election#loadDefs()},
-	 * {@link asgn1Election.Election#loadVotes()}
-	 * @throws NumbersException from {@link asgn1Election.Election#loadDefs()},
-	 * {@link asgn1Election.Election#loadVotes()}
+	 * @throws ElectionException
+	 *             from {@link asgn1Election.Election#loadDefs()},
+	 *             {@link asgn1Election.Election#loadVotes()}
+	 * @throws IOException
+	 *             from {@link asgn1Election.Election#loadDefs()},
+	 *             {@link asgn1Election.Election#loadVotes()}
+	 * @throws FileNotFoundException
+	 *             from {@link asgn1Election.Election#loadDefs()},
+	 *             {@link asgn1Election.Election#loadVotes()}
+	 * @throws NumbersException
+	 *             from {@link asgn1Election.Election#loadDefs()},
+	 *             {@link asgn1Election.Election#loadVotes()}
 	 */
-	public void setElection(Election elec) throws ElectionException,
-			FileNotFoundException, IOException, NumbersException {
+	public void setElection(Election elec)
+			throws ElectionException, FileNotFoundException, IOException, NumbersException {
 		this.currElection = elec;
 		this.currElection.loadDefs();
 		this.currElection.loadVotes();
 	}
 
 	/**
-	 * <p>Helper method to parse <code>Election</code> specification from a line 
-	 * election list file. The line includes the election name and an integer 
-	 * indicating its type.</p>
+	 * <p>
+	 * Helper method to parse <code>Election</code> specification from a line
+	 * election list file. The line includes the election name and an integer
+	 * indicating its type.
+	 * </p>
 	 * 
-	 * @param line <code>String</code> containing the current line from the file 
-	 * @param lineNum <code>int</code> count to provide location of errors 
-	 * @return <code>Election</code> containing the value parsed 
-	 * @throws <code>ElectionException</code> if <code>isNull(line) OR isInvalid(line) OR isIncomplete(line)</code>
-	 * @throws <code>NumbersException</code> if there is a numeric parsing error 
+	 * @param line <code>String</code> containing the current line from the file
+	 * @param lineNum <code>int</code> count to provide location of errors
+	 * @return <code>Election</code> containing the value parsed
+	 * @throws <code>ElectionException</code>
+	 *             if <code>isNull(line) OR isInvalid(line) OR isIncomplete(line)</code>
+	 * @throws <code>NumbersException</code>
+	 *             if there is a numeric parsing error
 	 */
-	private Election parseElectionFromLine(String line, int lineNum)
-			throws ElectionException, NumbersException {
+	private Election parseElectionFromLine(String line, int lineNum) throws ElectionException, NumbersException {
 		String[] tokens = line.trim().split(" ");
 		if (tokens.length != 2) {
 			throw new ElectionException("Invalid Election Line: " + lineNum);
