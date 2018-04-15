@@ -40,4 +40,5 @@
 *.war           binary
 
 # Ignore Javadocs
+.metadata/* linguist-vendored
 VotingWizard/doc/* linguist-vendored
